@@ -1,0 +1,32 @@
+# This workflow will build the source and test the integrity of newly built package using CMake.
+name: CMake
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+env:
+  BUILD_TYPE: Debug
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: 📦 Install the dependencies.
+      run: sudo apt-get install -y cmake gcc libxi-dev libx11-dev
+
+    - name: 🔧 Configure CMake.
+      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+
+    - name: 🧰 Build the sources.
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
+
+    - name: 🤖 Test the package.
+      working-directory: ${{github.workspace}}/build
+      run: ctest -C ${{env.BUILD_TYPE}}
+      

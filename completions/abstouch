@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+elementIn () {
+  local e match="$1"
+  shift
+  for e; do [[ "$e" == "$match" ]] && return 0; done
+  return 1
+}
+
+_abstouch()
+{
+    compopt -o default
+    local subcommands start_options calibrate_options completion
+
+    subcommands=('help start stop setup calibrate config')
+    start_options=('--foreground --quiet')
+    calibrate_options=('--no-visual')
+
+    completion=('')
+
+    if [[ "${COMP_CWORD}" -lt 1 ]]; then return 0
+    elif [[ "${COMP_CWORD}" -eq 1 ]]; then completion="${subcommands}"
+    else
+        if [[ "${COMP_WORDS[1]}" == "start" ]]; then completion="${start_options}"
+        elif [[ "${COMP_WORDS[1]}" == "calibrate" ]]; then completion="${calibrate_options}"; fi
+    fi
+
+    for i in "${!completion[@]}"; do
+        if [[ " ${COMP_WORDS[@]} " =~ " ${completion[i]} " ]]; then
+            unset "completion[${i}]"
+        fi
+    done
+
+    COMPREPLY=($(compgen -W "${completion}" -- "${COMP_WORDS[COMP_CWORD]}"))
+    return 0
+}
+
+complete -F _abstouch abstouch

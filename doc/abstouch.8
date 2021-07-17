@@ -1,0 +1,63 @@
+'\ t
+.TH "abstouch-nux" "8" "2021\-06\-24" "abstouch-nux" "abstouch-nux Manual"
+.nh
+.ad l
+.SH NAME
+abstouch\-nux \- An absolute touchpad input client for GNU/Linux.
+
+.SH SYNOPSIS
+\fIabstouch\fR <command> [options] [arguments]
+
+.SH DESCRIPTION
+Makes your touchpad kind of work like a graphics tablet on GNU/Linux.
+
+.SH COMMANDS
+.TP
+.B help
+Shows the help text.
+
+.TP
+.B start
+Starts the abstouch\-nux input client.
+
+.TP
+.B stop
+Stops the abstouch\-nux input client running as daemon.
+
+.TP
+.B setup
+Runs the abstouch\-nux setup.
+
+.TP
+.B calibrate
+Calibrates the abstouch\-nux input client.
+
+.TP
+.B config
+Changes or shows the abstouch\-nux configuration interactively.
+
+.SH OPTIONS
+.TP
+.B \-f, \-\-foreground
+Runs the client on foreground instead of background.
+
+.TP
+.B \-q, \-\-quiet
+Disables the output with the client except errors.
+
+.TP
+.B \-\-no\-visual
+Disables the visualization while calibrating.
+
+.SH EXAMPLES
+.B abstouch setup
+
+.B abstouch calibrate
+
+.B abstouch start -f
+
+.B abstouch start
+
+.B abstouch stop --quiet
+
+.B abstouch calibrate --no-visual
