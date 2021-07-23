@@ -13,6 +13,12 @@
 
 
 &nbsp;
+<h2 align="center"> Discontinued! </h2>
+<h4 align="center">The abstouch-nux project has <strike>finally</strike> come to an end. From now on, it won't get any updates at all.</h4>
+<h4 align="center">You might want to take a look at <a href="https://github.com/acedron/egawari"><code>egawari</code></a>, which is yet another input client, but aims to provide a drawing tablet like experience, while keeping things simpler, faster and even Windows-compatible.</h4>
+
+
+
 <h2 align="center"> Installation </h2>
 
 <details>
