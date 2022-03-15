@@ -163,8 +163,8 @@ int LInputClient(int verbose)
             SUCCESSLN("Got input at \x1b[0;37m%d\x1b[1;32mx\x1b[0;37m%d \x1b[1;37mwith \x1b[0;37m%d \x1b[1;37mpressure.\n", x, y, pressure);
         }
 
-        int cx = (x - x_min) / ((x_max - x_min) / window_attributes.width);
-        int cy = (y - y_min) / ((y_max - y_min) / window_attributes.height);
+        int cx = window_attributes.width * (x - x_min) / (x_max - x_min);
+        int cy = window_attributes.height * (y - y_min) / (y_max - y_min);
         XWarpPointer(display, None, root_window, 0, 0, 0, 0, cx, cy);
         XFlush(display);
         if (!gdaemon && gverbose) {
