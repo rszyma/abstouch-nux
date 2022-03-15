@@ -5,62 +5,25 @@
     An absolute touchpad input client for GNU/Linux.
 </h3>
 
-<h5 align="center">
-    <a href="https://github.com/acedron/abstouch-nux/blob/master/LICENSE"> <img src="https://img.shields.io/github/license/acedron/abstouch-nux?style=for-the-badge" alt="License" /> </a>
-    <a href="https://github.com/acedron/abstouch-nux/commit"> <img src="https://img.shields.io/github/last-commit/acedron/abstouch-nux?style=for-the-badge" alt="Last Commit" /> </a>
-    <a href="https://github.com/acedron/abstouch-nux/actions"> <img src="https://img.shields.io/github/workflow/status/acedron/abstouch-nux/CMake?style=for-the-badge" alt="Build Status" /> </a>
-</h5>
+<h2 align="center"> Info </h2>
+This project is forked from 
 
+[acedron/abstouch-nux](https://github.com/acedron/abstouch-nux)
 
-&nbsp;
-<h2 align="center"> Discontinued! </h2>
-<h4 align="center">The abstouch-nux project has <strike>finally</strike> come to an end. From now on, it won't get any updates at all.</h4>
-<h4 align="center">You might want to take a look at <a href="https://github.com/acedron/egawari"><code>egawari</code></a>, which is yet another input client, but aims to provide a drawing tablet like experience, while keeping things simpler, faster and even Windows-compatible.</h4>
+They stated that the project is discontinued (and is indeed archived), so I couldn't make PR directly.
+I fixed a bug for calibration to work properly.
 
+I also tested the program in game called osu!lazer. 
+All you need to for abstouch to work with osu is to disable `high precision mouse` in game options
 
+The program was tested with following touchpads:
+- ELAN Touchpad
 
 <h2 align="center"> Installation </h2>
 
-<details>
-  <summary><strong> Arch Linux (Manjaro, Artix, etc.) </strong></summary>
+For now, the only way you can install abstouch is to build the project from source. Here's how to do it:
 
-The package is available in the [AUR](https://aur.archlinux.org/packages/abstouch-nux).
-
-```bash
-$ git clone https://aur.archlinux.org/abstouch-nux.git
-$ cd abstouch-nux
-$ makepkg -si
-```
-
-**Make sure to add the user into the `input` group.**
-
-```bash
-$ sudo usermod -aG input $(whoami)
-```
-</details>
-
-<details>
-  <summary><strong> Debian/Ubuntu (Kali, Mint, etc.) </strong></summary>
-
-The package is available in my [ppa](https://launchpad.net/~acedron/+archive/ubuntu/ppa).
-
-```bash
-$ echo -e "deb http://ppa.launchpad.net/acedron/ppa/ubuntu focal main\ndeb-src http://ppa.launchpad.net/acedron/ppa/ubuntu focal main" | sudo tee -a /etc/apt/sources.list
-$ sudo apt-get update
-$ sudo apt-get install abstouch-nux
-```
-
-**Make sure to add the user into the `input` group.**
-
-```bash
-$ sudo usermod -aG input $(whoami)
-```
-</details>
-
-<details>
-  <summary><strong> Building From Source </strong></summary>
-
-You can make the project from source with [CMake](https://cmake.org).
+[CMake](https://cmake.org) is recommended compiler.
 
 You should install the dependencies first.
 - **Arch Linux**: `$ sudo pacman -Sy cmake gcc libxi libx11 xf86-input-libinput --needed`
@@ -71,8 +34,8 @@ You should install the dependencies first.
 Then you can build the package.
 
 ```bash
-$ git clone https://github.com/acedron/abstouch-nux.git
-$ cd abstouch-nux
+$ git clone https://github.com/nutel65/abstouch.git
+$ cd abstouch
 $ cmake -B build
 $ cmake --build build
 $ sudo cmake --install build
@@ -99,24 +62,16 @@ See help for more information.
 $ abstouch help
 ```
 
-<h2 align="center"> Examples </h2>
+<h2 align="center"> Setup </h2>
 
 ```bash
-# Setup the abstouch-nux client first.
-$ abstouch setup
-
-# Calibrate the abstouch-nux client.
+# Set touchpad area (just draw a rectagle on your touchpad 
+# of what area you want to use). Required abstouch restart after calibrating.
 $ abstouch calibrate
 
-# Start the abstouch-nux client on foreground.
-$ abstouch start -f
-
-# Start the abstouch-nux client as daemon.
+# Start abstouch
 $ abstouch start
 
-# Stop the abstouch-nux client quietly.
-$ abstouch stop --quiet
-
-# Recalibrate the client, without the visualization.
-$ abstouch calibrate --no-visual
+# Stop abstouch after you want normal touchpad mode back
+$ abstouch stop
 ```
