@@ -34,7 +34,7 @@ You should install the dependencies first.
 Then you can build the package.
 
 ```bash
-git clone https://github.com/rszyma/abstouch.git
+git clone https://github.com/rszyma/abstouch-nux.git
 cd abstouch
 cmake -B build
 cmake --build build
