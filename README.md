@@ -35,7 +35,7 @@ Then you can build the package.
 
 ```bash
 git clone https://github.com/rszyma/abstouch-nux.git
-cd abstouch
+cd abstouch-nux
 cmake -B build
 cmake --build build
 sudo cmake --install build
