@@ -34,17 +34,17 @@ You should install the dependencies first.
 Then you can build the package.
 
 ```bash
-$ git clone https://github.com/rszyma/abstouch.git
-$ cd abstouch
-$ cmake -B build
-$ cmake --build build
-$ sudo cmake --install build
+git clone https://github.com/rszyma/abstouch.git
+cd abstouch
+cmake -B build
+cmake --build build
+sudo cmake --install build
 ```
 
 **Make sure to add the user into the `input` group.**
 
 ```bash
-$ sudo usermod -aG input $(whoami)
+sudo usermod -aG input $(whoami)
 ```
 </details>
 
@@ -53,13 +53,13 @@ $ sudo usermod -aG input $(whoami)
 `abstouch` binary is available after installing.
 
 ```bash
-$ abstouch <command> [options] [arguments]
+abstouch <command> [options] [arguments]
 ```
 
 See help for more information.
 
 ```bash
-$ abstouch help
+abstouch help
 ```
 
 <h2 align="center"> Setup </h2>
@@ -67,11 +67,11 @@ $ abstouch help
 ```bash
 # Set touchpad area (just draw a rectagle on your touchpad 
 # of what area you want to use). Required abstouch restart after calibrating.
-$ abstouch calibrate
+abstouch calibrate
 
 # Start abstouch
-$ abstouch start
+abstouch start
 
 # Stop abstouch after you want normal touchpad mode back
-$ abstouch stop
+abstouch stop
 ```
